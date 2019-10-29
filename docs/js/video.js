@@ -12,7 +12,7 @@ class Video {
 		
 		navigator.getUserMedia(medias, successCallback, errorCallback);	
 
-	
+		}
 function successCallback(stream) {
 		  //video.srcObject = stream;
 		video.src = window.URL.createObjectURL( stream );
@@ -23,4 +23,6 @@ function successCallback(stream) {
 
 function errorCallback(error) {
 		  alert(error);
-		}
+		}	
+		
+}
