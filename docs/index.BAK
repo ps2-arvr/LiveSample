@@ -18,36 +18,34 @@
       }
     </style>
   </head>
+
   <body>
-   	<div id="example"></div>
-	<video id="video" autoplay playsinline></video>
+  
+  <video id="video" autoplay playsinline></video>
+  <div id="example"></div>
+
   <script>
-// フロント（イン）カメラの場合	
-		const medias = {audio : false, video : { facingMode: "user" }},
- 		video  = document.getElementById("video");
+	// フロント（イン）カメラの場合	
+	const medias = {audio : false, video : { facingMode: "user" }},
+ 	video  = document.getElementById("video");
 
-		// リア（バック/アウト）カメラの場合
-		/* const medias = {audio : false, video : { facingMode: { exact: "environment" } }},
- 		     video  = document.getElementById("video"); */
-		
-		navigator.getUserMedia(medias, successCallback, errorCallback);	
+	// リア（バック/アウト）カメラの場合
+	/* const medias = {audio : false, video : { facingMode: { exact: "environment" } }},
+ 	video  = document.getElementById("video"); */
+	navigator.getUserMedia(medias, successCallback, errorCallback);	
 
-		}
-function successCallback(stream) {
-		  //video.srcObject = stream;
-		video.src = window.URL.createObjectURL( stream );
-		// 動画の再生
-		peer.addStream(stream)
-		video.play();
-		}
+	function successCallback(stream) {
+	//video.srcObject = stream;
+	video.src = window.URL.createObjectURL( stream );
 
-function errorCallback(error) {
-		  alert(error);
-		}
+	// 動画の再生
+	peer.addStream(stream)
+	video.play();
 
-
-
-
+	}
+	function errorCallback(error) {
+	alert(error);
+	}
   </script>
   
   </body>
