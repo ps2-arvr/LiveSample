@@ -1,7 +1,5 @@
-class Video {
 
-	init() {
-	
+function webCam() {
 		// フロント（イン）カメラの場合	
 		const medias = {audio : false, video : { facingMode: "user" }},
  		video  = document.getElementById("video");

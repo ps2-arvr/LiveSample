@@ -1,14 +1,54 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-	</head>
-	<body>
+<html lang="en">
+  <head>
+    <title>Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+      body {
+        margin: 0px;
+        overflow: hidden;
+      }
+      #example {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+   	<div id="example"></div>
+	<video id="video" autoplay playsinline></video>
+  <script>
+// フロント（イン）カメラの場合	
+		const medias = {audio : false, video : { facingMode: "user" }},
+ 		video  = document.getElementById("video");
 
-       		 <video id="video" autoplay playsinline></video>
-		<script src="video.js"></script>
-	</body>
+		// リア（バック/アウト）カメラの場合
+		/* const medias = {audio : false, video : { facingMode: { exact: "environment" } }},
+ 		     video  = document.getElementById("video"); */
+		
+		navigator.getUserMedia(medias, successCallback, errorCallback);	
+
+		}
+function successCallback(stream) {
+		  //video.srcObject = stream;
+		video.src = window.URL.createObjectURL( stream );
+		// 動画の再生
+		peer.addStream(stream)
+		video.play();
+		}
+
+function errorCallback(error) {
+		  alert(error);
+		}
+
+
+
+
+  </script>
+  
+  </body>
 </html>
