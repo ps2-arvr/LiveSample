@@ -22,7 +22,7 @@
   <body>
   <video id="video" autoplay playsinline></video>
   <div id="example"></div>
-
+  <button id="stop">stop</button>
   <script>
 	// フロント（イン）カメラの場合	
 	const medias = {audio : false, video : { facingMode: "user" }},
@@ -31,6 +31,7 @@
 	// リア（バック/アウト）カメラの場合
 	/* const medias = {audio : false, video : { facingMode: { exact: "environment" } }},
  	video  = document.getElementById("video"); */
+
 	navigator.getUserMedia(medias, successCallback, errorCallback);	
 
 	function successCallback(stream) {
@@ -45,6 +46,12 @@
 	function errorCallback(error) {
 	alert(error);
 	}
+
+	var stop = document.getElementById('stop');
+	stop.addEventListener('click', function () {
+   	video.pause();
+  	video.currentTime = 0;
+	});
   </script>
 
   </body>

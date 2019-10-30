@@ -20,10 +20,9 @@
   </head>
 
   <body>
-  
   <video id="video" autoplay playsinline></video>
   <div id="example"></div>
-
+  <button id="stop">stop</button>
   <script>
 	// フロント（イン）カメラの場合	
 	const medias = {audio : false, video : { facingMode: "user" }},
@@ -32,6 +31,7 @@
 	// リア（バック/アウト）カメラの場合
 	/* const medias = {audio : false, video : { facingMode: { exact: "environment" } }},
  	video  = document.getElementById("video"); */
+
 	navigator.getUserMedia(medias, successCallback, errorCallback);	
 
 	function successCallback(stream) {
@@ -47,6 +47,6 @@
 	alert(error);
 	}
   </script>
-  
+
   </body>
 </html>
